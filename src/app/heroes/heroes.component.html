@@ -1,0 +1,28 @@
+<h2>My Heros</h2>
+<ul class="heroes" >
+    <li 
+        *ngFor="let hero of heros"  
+          class = "flex-container">
+          <a 
+            routerLink="/hero-details/{{hero.id}}">
+            <span class="badge bg-dark">{{hero.id}}</span> {{hero.name}}
+          </a>
+          <button 
+            class="delete" 
+            title="Delete Hero" 
+            (click)="deleteHero(hero)">Delete</button>
+              
+    </li>
+</ul>
+<div>
+    <label for="new-hero">Hero name: </label>
+    <input id="new-hero" #heroName />
+  
+    
+    <button class="add-button" (click)="add(heroName.value); heroName.value = '' ">
+      Add hero
+    </button>
+  </div>
+
+
+
